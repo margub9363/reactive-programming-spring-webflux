@@ -42,4 +42,30 @@ public class CustomerServiceTest {
                 .jsonPath("$[1].id").isEqualTo(6);
 
     }
+
+    @Test
+    public void customerNotFound() {
+        // get
+        this.client.get()
+                .uri("/customer/45")
+                .exchange()
+                .expectStatus().is4xxClientError();
+//                .expectBody().isEmpty();
+
+        // delete
+        this.client.delete()
+                .uri("/customer/11")
+                .exchange()
+                .expectStatus().is4xxClientError();
+//                .expectBody().isEmpty();
+
+        // put
+        /*var dto = new CustomerDto(null, "noel", "noel@gmail.com");
+        this.client.put()
+                .uri("/customers/110")
+                .bodyValue(dto)
+                .exchange()
+                .expectStatus().is4xxClientError();*/
+//                .expectBody().isEmpty();
+    }
 }
