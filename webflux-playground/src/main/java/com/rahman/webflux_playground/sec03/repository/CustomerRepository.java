@@ -1,4 +1,4 @@
-package com.rahman.webflux_playground.sec02_r2dbc;
+package com.rahman.webflux_playground.sec03.repository;
 
 import com.rahman.webflux_playground.sec03.entity.Customer;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
@@ -7,6 +7,5 @@ import reactor.core.publisher.Flux;
 
 @Repository
 public interface CustomerRepository extends ReactiveCrudRepository<Customer, Integer> {
-    Flux<Customer> findByName(String name);
 
 }
